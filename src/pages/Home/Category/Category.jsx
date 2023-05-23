@@ -10,7 +10,7 @@ import img5 from "../../../assets/home/slide5.jpg";
 
 const Category = () => {
   return (
-    <div className="max-container my-10 md:my-16">
+    <div className="max-container my-10 md:my-20">
       <SectionTitle
         subtitle="From 11:00am to 10:00pm"
         title="Order online"
