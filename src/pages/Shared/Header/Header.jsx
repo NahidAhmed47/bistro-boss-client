@@ -61,7 +61,7 @@ const Header = () => {
             <img className="w-[62px] " src={shopIcon} alt="" />
           </div>
           <div className="ml-2">
-            <button to="/login" className="text-base tracking-wide font-medium uppercase px-3 py-1 border-b-2 rounded-md border-primary text-primary bg-[#E8E8E8]">Login</button>
+            <button to="/login" className="my-btn py-1">Login</button>
           </div>
         </div>
       </div>

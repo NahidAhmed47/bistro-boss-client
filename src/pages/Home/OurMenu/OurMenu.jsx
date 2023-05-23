@@ -25,6 +25,9 @@ const OurMenu = () => {
                     }
                 </div>
             </div>
+            <div className='text-center mt-10'>
+                <button className='my-btn py-2'>View Full Menu</button>
+            </div>
         </div>
     );
 };

@@ -5,3 +5,6 @@
 .max-container{
    @apply max-w-[1400px] mx-auto
 }
+.my-btn{
+   @apply text-base tracking-wide font-medium uppercase px-4 border-b-2 rounded-md border-primary text-primary bg-[#E8E8E8]
+}
