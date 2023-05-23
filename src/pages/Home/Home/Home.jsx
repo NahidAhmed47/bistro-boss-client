@@ -5,6 +5,7 @@ import Service from '../Service/Service';
 import OurMenu from '../OurMenu/OurMenu';
 import ChefRecommends from '../ChefRecommends/ChefRecommends';
 import Featured from '../Featured/Featured';
+import Testimonials from '../Testimonials/Testimonials';
 
 
 const Home = () => {
@@ -19,6 +20,7 @@ const Home = () => {
             </div>
             <ChefRecommends></ChefRecommends>
             <Featured></Featured>
+            <Testimonials></Testimonials>
         </div>
     );
 };

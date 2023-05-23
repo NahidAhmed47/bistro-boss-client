@@ -3,7 +3,7 @@ import SectionTitle from "../../../components/SectionTitle";
 
 const Featured = () => {
   return (
-    <div className="max-container w-full my-10 md:my-20 bg-[url('https://i.ibb.co/r6RsmfG/featured.jpg')]  min-h-[700px] bg-cover">
+    <div className="max-container w-full my-10 md:my-20 bg-[url('https://i.ibb.co/r6RsmfG/featured.jpg')]  min-h-[700px] bg-cover bg-fixed">
       <div className="w-full min-h-[700px] flex justify-center items-center bg-black bg-opacity-50">
         <div className="flex flex-col justify-center items-center">
           <SectionTitle
