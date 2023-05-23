@@ -4,8 +4,8 @@ import shopIcon from "../../../assets/icon/151-1511569_cart-notifications-free-s
 
 const Header = () => {
   return (
-    <div className="h-fit py-1 bg-black bg-opacity-40 w-full">
-      <div className="max-container flex justify-between items-center">
+    <div className="h-fit py-1 bg-black bg-opacity-50 w-full fixed z-10">
+      <div className="max-container flex justify-between items-center md:px-5 lg:px-8">
         <div>
           <h1 className="text-2xl font-bold uppercase text-white tracking-wide">
             Bistro Boss

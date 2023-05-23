@@ -7,9 +7,7 @@ const Main = () => {
     return (
         <div>
             <Header></Header>
-            <div className='max-container'>
-                <Outlet></Outlet>
-            </div>
+            <Outlet></Outlet>
             <Footer></Footer>
         </div>
     );
