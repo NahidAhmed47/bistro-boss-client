@@ -4,6 +4,7 @@ import Category from '../Category/Category';
 import Service from '../Service/Service';
 import OurMenu from '../OurMenu/OurMenu';
 import ChefRecommends from '../ChefRecommends/ChefRecommends';
+import Featured from '../Featured/Featured';
 
 
 const Home = () => {
@@ -17,6 +18,7 @@ const Home = () => {
                 <h1 className='font-mono text-5xl text-white'>Call Us: +88 0192345678910</h1>
             </div>
             <ChefRecommends></ChefRecommends>
+            <Featured></Featured>
         </div>
     );
 };
