@@ -3,10 +3,12 @@ import PageBanner from "../Shared/PageBanner/PageBanner";
 import SectionTitle from "../../components/SectionTitle";
 import useMenu from "../../hooks/useMenu";
 import SingleItemMenu from "../../components/SingleItemMenu";
+import SectionBanner from "../Shared/SectionBanner/SectionBanner";
 
 const Menu = () => {
   const [menu] = useMenu();
   const offered = menu.filter((item) => item.category === "offered");
+  const desserts = menu.filter((item) => item.category === "dessert");
   return (
     <div>
       <PageBanner
@@ -27,6 +29,14 @@ const Menu = () => {
         </div>
         <div className="w-full text-center mt-8">
           <button className="my-btn py-2">Order Your Favorite Food</button>
+        </div>
+        <div>
+          <SectionBanner title='Desserts'></SectionBanner>
+          <div className="grid md:grid-cols-2 mt-10 gap-8">
+          {desserts.map((item) => (
+            <SingleItemMenu key={item._id} item={item}></SingleItemMenu>
+          ))}
+        </div>
         </div>
       </div>
     </div>
