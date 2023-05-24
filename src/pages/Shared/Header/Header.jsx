@@ -49,7 +49,7 @@ const Header = () => {
               Our Menu
             </NavLink>
             <NavLink
-              to="/shop"
+              to="/shop/salad"
               className={({isActive}) =>
                 isActive ? "text-[#EEFF25]" : "hover:text-primary duration-200"
               }
