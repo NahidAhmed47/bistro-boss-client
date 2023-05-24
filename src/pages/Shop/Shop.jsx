@@ -4,10 +4,20 @@ import "react-tabs/style/react-tabs.css";
 import PageBanner from "../Shared/PageBanner/PageBanner";
 import useMenu from "../../hooks/useMenu";
 import ItemCard from "../../components/ItemCard";
+import { useParams } from "react-router-dom";
 
 const Shop = () => {
   const [menu] = useMenu();
+  const [tabIndex, setTabIndex] = useState(0);
   const [allCategory, setAllCategory] = useState([]);
+  const {category} = useParams();
+  let initialIndex = allCategory.indexOf(category);
+  if(initialIndex === -1) {
+    initialIndex = 0;
+  }
+  useEffect(()=>{
+    setTabIndex(initialIndex)
+  },[initialIndex])
   useEffect(() => {
     const categories = [];
     for (const item of menu) {
@@ -15,7 +25,6 @@ const Shop = () => {
         categories.push(item.category);
       }
     }
-    // const convertUpperCase = categories.map(name => name.toUpperCase());
     setAllCategory(categories);
   }, [menu]);
   return (
@@ -26,7 +35,7 @@ const Shop = () => {
       ></PageBanner>
       {/* tabs by category start from here */}
       <div className="max-container my-10 md:my-20">
-        <Tabs>
+        <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
           <TabList>
             {allCategory?.map((category, index) => (
               <Tab key={index}>{category.toUpperCase()}</Tab>

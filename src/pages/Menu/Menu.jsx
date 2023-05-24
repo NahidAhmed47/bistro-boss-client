@@ -4,6 +4,7 @@ import SectionTitle from "../../components/SectionTitle";
 import useMenu from "../../hooks/useMenu";
 import SingleItemMenu from "../../components/SingleItemMenu";
 import SectionBanner from "../Shared/SectionBanner/SectionBanner";
+import { Link } from "react-router-dom";
 
 const Menu = () => {
   const [menu] = useMenu();
@@ -31,55 +32,65 @@ const Menu = () => {
           ))}
         </div>
         <div className="w-full text-center mt-8">
-          <button className="my-btn py-2">Order Your Favorite Food</button>
+          <Link to={`/shop/offered`}>
+            <button className="my-btn py-2">Order Your Favorite Food</button>
+          </Link>
         </div>
         {/* desserts section added */}
         <div>
-          <SectionBanner title='Desserts'></SectionBanner>
+          <SectionBanner title="Desserts"></SectionBanner>
           <div className="grid md:grid-cols-2 mt-10 gap-8">
-          {desserts.map((item) => (
-            <SingleItemMenu key={item._id} item={item}></SingleItemMenu>
-          ))}
-        </div>
-        <div className="w-full text-center mt-8">
-          <button className="my-btn py-2">Order Your Favorite Food</button>
-        </div>
+            {desserts.map((item) => (
+              <SingleItemMenu key={item._id} item={item}></SingleItemMenu>
+            ))}
+          </div>
+          <div className="w-full text-center mt-8">
+            <Link to={`/shop/dessert`}>
+              <button className="my-btn py-2">Order Your Favorite Food</button>
+            </Link>
+          </div>
         </div>
         {/* pizza section added */}
         <div>
-          <SectionBanner title='Pizza'></SectionBanner>
+          <SectionBanner title="Pizza"></SectionBanner>
           <div className="grid md:grid-cols-2 mt-10 gap-8">
-          {pizza.map((item) => (
-            <SingleItemMenu key={item._id} item={item}></SingleItemMenu>
-          ))}
-        </div>
-        <div className="w-full text-center mt-8">
-          <button className="my-btn py-2">Order Your Favorite Food</button>
-        </div>
+            {pizza.map((item) => (
+              <SingleItemMenu key={item._id} item={item}></SingleItemMenu>
+            ))}
+          </div>
+          <div className="w-full text-center mt-8">
+          <Link to={`/shop/pizza`}>
+              <button className="my-btn py-2">Order Your Favorite Food</button>
+            </Link>
+          </div>
         </div>
         {/* salads section added */}
         <div>
-          <SectionBanner title='salads'></SectionBanner>
+          <SectionBanner title="salads"></SectionBanner>
           <div className="grid md:grid-cols-2 mt-10 gap-8">
-          {salads.map((item) => (
-            <SingleItemMenu key={item._id} item={item}></SingleItemMenu>
-          ))}
-        </div>
-        <div className="w-full text-center mt-8">
-          <button className="my-btn py-2">Order Your Favorite Food</button>
-        </div>
+            {salads.map((item) => (
+              <SingleItemMenu key={item._id} item={item}></SingleItemMenu>
+            ))}
+          </div>
+          <div className="w-full text-center mt-8">
+          <Link to={`/shop/salad`}>
+              <button className="my-btn py-2">Order Your Favorite Food</button>
+            </Link>
+          </div>
         </div>
         {/* soups section added */}
         <div>
-          <SectionBanner title='soups'></SectionBanner>
+          <SectionBanner title="soups"></SectionBanner>
           <div className="grid md:grid-cols-2 mt-10 gap-8">
-          {soups.map((item) => (
-            <SingleItemMenu key={item._id} item={item}></SingleItemMenu>
-          ))}
-        </div>
-        <div className="w-full text-center mt-8">
-          <button className="my-btn py-2">Order Your Favorite Food</button>
-        </div>
+            {soups.map((item) => (
+              <SingleItemMenu key={item._id} item={item}></SingleItemMenu>
+            ))}
+          </div>
+          <div className="w-full text-center mt-8">
+          <Link to={`/shop/soup`}>
+              <button className="my-btn py-2">Order Your Favorite Food</button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
