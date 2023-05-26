@@ -10,6 +10,7 @@ import Menu from "./pages/Menu/Menu";
 import Shop from "./pages/Shop/Shop";
 import Login from "./pages/Login/Login";
 import Registration from "./pages/Login/Registration";
+import AuthProviders from "./Providers/AuthProviders";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-      <RouterProvider router={router}></RouterProvider>
+    <AuthProviders>
+        <RouterProvider router={router}></RouterProvider>
+    </AuthProviders>
   </React.StrictMode>
 );
