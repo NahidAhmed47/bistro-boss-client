@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-// import { AuthContext } from "../../providers/AuthProviders";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Providers/AuthProviders";
 
 const Registration = () => {
-//   const { signUp, updateUser, logInWithGoogle } = useContext(AuthContext);
+  const { signUp, updateUser, logInWithGoogle } = useContext(AuthContext);
   const [error, setError] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
@@ -18,44 +18,45 @@ const Registration = () => {
     const password = form.password.value;
     const name = form.name.value;
     const photo = form.photo.value;
-    // signUp(email, password)
-    //   .then((result) => {
-    //     updateUser(name, photo)
-    //       .then(() => {
-    //         Swal.fire({
-    //           position: "center",
-    //           icon: "success",
-    //           title: "Account Created Successfully!",
-    //           showConfirmButton: false,
-    //           timer: 1500,
-    //         });
-    //         navigate(from, {replace:true});
-    //         form.reset();
-    //       })
-    //       .catch((error) => {
-    //         setError(error.message);
-    //       });
-    //   })
-    //   .catch((err) => {
-    //     setError(err.message);
-    //   });
+    signUp(email, password)
+      .then((result) => {
+        updateUser(name, photo)
+          .then(() => {
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Account Created Successfully!",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            navigate(from, {replace:true});
+            form.reset();
+          })
+          .catch((error) => {
+            setError(error.message);
+          });
+      })
+      .catch((err) => {
+        setError(err.message);
+        console.log(err)
+      });
   };
   // sign in with google
   const handleGoogleSignIn = () => {
-    // logInWithGoogle()
-    //   .then((result) => {
-    //     Swal.fire({
-    //       position: "center",
-    //       icon: "success",
-    //       title: "Account Created Successfully!",
-    //       showConfirmButton: false,
-    //       timer: 1500,
-    //     });
-    //     navigate(from, {replace:true});
-    //   })
-    //   .catch((err) => {
-    //     setError(err.message);
-    //   });
+    logInWithGoogle()
+      .then((result) => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Account Created Successfully!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate(from, {replace:true});
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
   };
   return (
     <div className="min-h-[70vh] max-w-[500px] mx-auto md:mt-28 my-10  px-8 md:px-0 ">
