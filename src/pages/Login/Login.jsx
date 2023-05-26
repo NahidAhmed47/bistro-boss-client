@@ -1,20 +1,45 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-// import { AuthContext } from "../../providers/AuthProviders";
+import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import Swal from "sweetalert2";
 
 const Login = () => {
 //   const { logIn, logInWithGoogle } = useContext(AuthContext);
+  const [captchaStatus, setCaptchaStatus] = useState(false);
   const [error, setError] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
   const from = location?.state?.from?.pathname || '/';
+  useEffect(()=>{
+    loadCaptchaEnginge(6); 
+  },[])
+  const handleCaptcha = (e) => {
+    const user_captcha_value = e.target.value;
+    if (validateCaptcha(user_captcha_value)==true) {
+        setCaptchaStatus(true)
+    }
+
+    else {
+        setCaptchaStatus(false)
+    }
+  }
   const handleFormData = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
+    if(!captchaStatus){
+        Swal.fire({
+                  position: "center",
+                  icon: "error",
+                  title: "Please provide valid captcha!",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+            return;
+    }
+    console.log(email, password);
     // logIn(email, password)
     //   .then((result) => {
     //     Swal.fire({
@@ -91,6 +116,19 @@ const Login = () => {
               type="password"
               name="password"
               placeholder="Enter your password"
+              required
+            />
+          </div>
+          <div>
+          <div className="text-sm font-bold text-gray-700 tracking-wide mt-3">
+                <LoadCanvasTemplate />
+            </div>
+            <input
+              className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-primary"
+              type="text"
+              name="captcha"
+              placeholder="Type text above"
+              onBlur={handleCaptcha}
               required
             />
           </div>
