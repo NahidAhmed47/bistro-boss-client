@@ -3,9 +3,10 @@ import { FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Providers/AuthProviders";
 
 const Login = () => {
-//   const { logIn, logInWithGoogle } = useContext(AuthContext);
+  const { logIn, logInWithGoogle } = useContext(AuthContext);
   const [captchaStatus, setCaptchaStatus] = useState(false);
   const [error, setError] = useState("");
   const location = useLocation();
@@ -40,38 +41,38 @@ const Login = () => {
             return;
     }
     console.log(email, password);
-    // logIn(email, password)
-    //   .then((result) => {
-    //     Swal.fire({
-    //       position: "center",
-    //       icon: "success",
-    //       title: "Sign in Successfully!",
-    //       showConfirmButton: false,
-    //       timer: 1500,
-    //     });
-    //     navigate(from, {replace:true});
-    //     form.reset();
-    //   })
-    //   .catch((err) => {
-    //     setError(err.message);
-    //   });
+    logIn(email, password)
+      .then((result) => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Sign in Successfully!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate(from, {replace:true});
+        form.reset();
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
   };
   // login with google
   const handleGoogleLogIn = () => {
-    // logInWithGoogle()
-    //   .then((result) => {
-    //     Swal.fire({
-    //       position: "center",
-    //       icon: "success",
-    //       title: "Sign in Successfully!",
-    //       showConfirmButton: false,
-    //       timer: 1500,
-    //     });
-    //     navigate(from, {replace:true});
-    //   })
-    //   .catch((err) => {
-    //     setError(err.message);
-    //   });
+    logInWithGoogle()
+      .then((result) => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Sign in Successfully!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate(from, {replace:true});
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
   };
   return (
    <div className='max-container flex justify-center items-center h-screen'>

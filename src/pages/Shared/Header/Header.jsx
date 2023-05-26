@@ -1,8 +1,20 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import shopIcon from "../../../assets/icon/151-1511569_cart-notifications-free-shopping-cart-favicon-hd-png-removebg-preview.png";
+import { AuthContext } from "../../../Providers/AuthProviders";
 
 const Header = () => {
+  const {user, logOut} = useContext(AuthContext)
+  const navigate = useNavigate()
+  const handleLogOut = ()=>{
+    logOut()
+    .then(()=>{
+      navigate('/', {replace: true})
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
   return (
     <div className="h-fit py-1 bg-black bg-opacity-50 w-full fixed z-10">
       <div className="max-container flex justify-between items-center md:px-5 lg:px-8">
@@ -61,7 +73,9 @@ const Header = () => {
             <img className="w-[62px] " src={shopIcon} alt="" />
           </div>
           <div className="ml-2">
-            <Link to="/login"><button to="/login" className="my-btn py-1">Login</button></Link>
+            {
+              user ? <button onClick={handleLogOut} className="my-btn py-1">Logout</button> : <Link to="/login"><button className="my-btn py-1">Login</button></Link>
+            }
           </div>
         </div>
       </div>
