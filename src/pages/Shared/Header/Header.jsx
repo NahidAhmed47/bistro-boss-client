@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import shopIcon from "../../../assets/icon/151-1511569_cart-notifications-free-shopping-cart-favicon-hd-png-removebg-preview.png";
 
 const Header = () => {
@@ -61,7 +61,7 @@ const Header = () => {
             <img className="w-[62px] " src={shopIcon} alt="" />
           </div>
           <div className="ml-2">
-            <button to="/login" className="my-btn py-1">Login</button>
+            <Link to="/login"><button to="/login" className="my-btn py-1">Login</button></Link>
           </div>
         </div>
       </div>

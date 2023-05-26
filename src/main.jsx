@@ -9,6 +9,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import Menu from "./pages/Menu/Menu";
 import Shop from "./pages/Shop/Shop";
 import Login from "./pages/Login/Login";
+import Registration from "./pages/Login/Registration";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: 'login',
         element: <Login></Login>
+      },
+      {
+        path: 'registration',
+        element: <Registration></Registration>
       }
     ],
   },
