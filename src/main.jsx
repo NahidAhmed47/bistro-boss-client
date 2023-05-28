@@ -11,6 +11,9 @@ import Shop from "./pages/Shop/Shop";
 import Login from "./pages/Login/Login";
 import Registration from "./pages/Login/Registration";
 import AuthProviders from "./Providers/AuthProviders";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
@@ -22,29 +25,29 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: 'contract',
-        element: <Contract></Contract>
+        path: "contract",
+        element: <Contract></Contract>,
       },
       {
-        path: 'dashboard',
-        element: <Dashboard></Dashboard>
+        path: "dashboard",
+        element: <Dashboard></Dashboard>,
       },
       {
-        path: 'menu',
-        element:<Menu></Menu>
+        path: "menu",
+        element: <Menu></Menu>,
       },
       {
-        path: 'shop/:category',
-        element: <Shop></Shop>
+        path: "shop/:category",
+        element: <Shop></Shop>,
       },
       {
-        path: 'login',
-        element: <Login></Login>
+        path: "login",
+        element: <Login></Login>,
       },
       {
-        path: 'registration',
-        element: <Registration></Registration>
-      }
+        path: "registration",
+        element: <Registration></Registration>,
+      },
     ],
   },
 ]);
@@ -52,7 +55,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProviders>
+      <QueryClientProvider client={queryClient}>
         <RouterProvider router={router}></RouterProvider>
+      </QueryClientProvider>
     </AuthProviders>
   </React.StrictMode>
 );
