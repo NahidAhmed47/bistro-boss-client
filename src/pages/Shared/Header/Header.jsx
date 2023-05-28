@@ -2,9 +2,11 @@ import React, { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import shopIcon from "../../../assets/icon/151-1511569_cart-notifications-free-shopping-cart-favicon-hd-png-removebg-preview.png";
 import { AuthContext } from "../../../Providers/AuthProviders";
+import useCart from "../../../hooks/useCart";
 
 const Header = () => {
   const {user, logOut} = useContext(AuthContext)
+  const [isLoading, cart]= useCart()
   const navigate = useNavigate()
   const handleLogOut = ()=>{
     logOut()
@@ -69,8 +71,11 @@ const Header = () => {
               Shop
             </NavLink>
           </div>
-          <div>
+          <div className="relative w-[62px] h-fit">
             <img className="w-[62px] " src={shopIcon} alt="" />
+            <div className="absolute bottom-[2px] right-[2px] w-[26px] h-[26px] rounded-full bg-[#E8E8E8] flex justify-center items-center">
+              <p className="text-base font-bold">{cart?.length || 0}</p>
+            </div>
           </div>
           <div className="ml-2">
             {

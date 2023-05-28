@@ -17,7 +17,7 @@ const useCart = () => {
       return res.json();
     },
   });
-  return [isLoading, data, refetch];
+  return [isLoading, cart, refetch];
 };
 
 export default useCart;
