@@ -27,35 +27,35 @@ const Dashboard = () => {
             </h1>
           </div>
           <li>
-            <Link to="/dashboard/mycart" className="font-bold font-serif uppercase"><FaHome className="text-black w-6 h-6"></FaHome>User Home</Link>
+            <Link to="/dashboard/user/home" className="font-bold font-serif uppercase"><FaHome className="text-black w-6 h-6"></FaHome>User Home</Link>
           </li>
           <li>
-            <Link to="/dashboard/mycart" className="font-bold font-serif uppercase"><FaCalendarAlt className="text-black w-6 h-6"></FaCalendarAlt>Reservation</Link>
+            <Link to="/dashboard/reservation" className="font-bold font-serif uppercase"><FaCalendarAlt className="text-black w-6 h-6"></FaCalendarAlt>Reservation</Link>
           </li>
           <li>
-            <Link to="/dashboard/mycart" className="font-bold font-serif uppercase"><FaWallet className="text-black w-6 h-6"></FaWallet>Payment History</Link>
+            <Link to="/dashboard/payment-history" className="font-bold font-serif uppercase"><FaWallet className="text-black w-6 h-6"></FaWallet>Payment History</Link>
           </li>
           <li>
             <Link to="/dashboard/mycart" className="font-bold font-serif uppercase"><FaShoppingCart className="text-black w-6 h-6"></FaShoppingCart>My Cart</Link>
           </li>
           <li>
-            <Link to="/dashboard/mycart" className="font-bold font-serif uppercase"><FaCommentDots className="text-black w-6 h-6"></FaCommentDots>Add review</Link>
+            <Link to="/dashboard/review" className="font-bold font-serif uppercase"><FaCommentDots className="text-black w-6 h-6"></FaCommentDots>Add review</Link>
           </li>
           <li>
-            <Link to="/dashboard/mycart" className="font-bold font-serif uppercase"><FaCalendar className="text-black w-6 h-6"></FaCalendar>My Booking</Link>
+            <Link to="/dashboard/booking" className="font-bold font-serif uppercase"><FaCalendar className="text-black w-6 h-6"></FaCalendar>My Booking</Link>
           </li>
           <div className="divider"></div>
           <li>
-            <Link to="/dashboard/mycart" className="font-bold font-serif uppercase"><FaHome className="text-black w-6 h-6"></FaHome>Home</Link>
+            <Link to="/" className="font-bold font-serif uppercase"><FaHome className="text-black w-6 h-6"></FaHome>Home</Link>
           </li>
           <li>
-            <Link to="/dashboard/mycart" className="font-bold font-serif uppercase"><FaBars className="text-black w-6 h-6"></FaBars>Menu</Link>
+            <Link to="/menu" className="font-bold font-serif uppercase"><FaBars className="text-black w-6 h-6"></FaBars>Menu</Link>
           </li>
           <li>
-            <Link to="/dashboard/mycart" className="font-bold font-serif uppercase"><FaShoppingBag className="text-black w-6 h-6"></FaShoppingBag>Shop</Link>
+            <Link to="/shop/pizza" className="font-bold font-serif uppercase"><FaShoppingBag className="text-black w-6 h-6"></FaShoppingBag>Shop</Link>
           </li>
           <li>
-            <Link to="/dashboard/mycart" className="font-bold font-serif uppercase"><FaFax className="text-black w-6 h-6"></FaFax>Contract</Link>
+            <Link to="/contract" className="font-bold font-serif uppercase"><FaFax className="text-black w-6 h-6"></FaFax>Contract</Link>
           </li>
         </ul>
       </div>

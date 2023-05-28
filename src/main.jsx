@@ -13,6 +13,11 @@ import AuthProviders from "./Providers/AuthProviders";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Dashboard from "./layouts/Dashboard";
 import MyCart from "./pages/Dashboard/Users/MyCart/MyCart";
+import UserHome from "./pages/Dashboard/Users/UserHome/UserHome";
+import Reservation from "./pages/Dashboard/Users/Reservation/Reservation";
+import PaymentHistory from "./pages/Dashboard/Users/PaymentHistory/PaymentHistory";
+import AddReview from "./pages/Dashboard/Users/AddReview/AddReview";
+import MyBooking from "./pages/Dashboard/Users/MyBooking/MyBooking";
 
 const queryClient = new QueryClient();
 
@@ -56,9 +61,29 @@ const router = createBrowserRouter([
     element: <Dashboard></Dashboard>,
     children: [
       {
+        path:'user/home',
+        element: <UserHome></UserHome>
+      },
+      {
+        path:'reservation',
+        element: <Reservation></Reservation>
+      },
+      {
+        path:'payment-history',
+        element: <PaymentHistory></PaymentHistory>
+      },
+      {
         path:'mycart',
         element: <MyCart></MyCart>
-      }
+      },
+      {
+        path:'review',
+        element: <AddReview></AddReview>
+      },
+      {
+        path:'booking',
+        element: <MyBooking></MyBooking>
+      },
     ]
   }
 ]);
