@@ -37,7 +37,7 @@ const MyCart = () => {
     });
   };
   return (
-    <div>
+    <div className="w-full md:px-14">
       <SectionTitle subtitle="My Cart" title="Wanna add more"></SectionTitle>
       <div className="mt-5">
         <div className="my-3 h-16 w-full flex justify-between items-center">
