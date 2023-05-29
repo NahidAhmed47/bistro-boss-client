@@ -14,14 +14,25 @@ const SocialSignIn = () => {
   const handleGoogleSignIn = () => {
     logInWithGoogle()
       .then((result) => {
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Account Created Successfully!",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        navigate(from, { replace: true });
+        const saveUser = { name: result.user.displayName, email: result.user.email };
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(saveUser),
+        })
+          .then((res) => res.json())
+          .then(() => {
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Account Created Successfully!",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            navigate(from, { replace: true });
+          });
       })
       .catch((err) => {
         setError(err.message);

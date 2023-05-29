@@ -23,7 +23,10 @@ const Registration = () => {
       .then((result) => {
         updateUser(name, photo)
           .then(() => {
-            const saveUser = { name: result.user.displayName, email: result.user.email };
+            const saveUser = {
+              name: result.user.displayName,
+              email: result.user.email,
+            };
             fetch("http://localhost:5000/users", {
               method: "POST",
               headers: {
@@ -33,15 +36,17 @@ const Registration = () => {
             })
               .then((res) => res.json())
               .then((data) => {
-                Swal.fire({
-                  position: "center",
-                  icon: "success",
-                  title: "Account Created Successfully!",
-                  showConfirmButton: false,
-                  timer: 1500,
-                });
-                navigate(from, { replace: true });
-                form.reset();
+                if (data.insertedId) {
+                  Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Account Created Successfully!",
+                    showConfirmButton: false,
+                    timer: 1500,
+                  });
+                  navigate(from, { replace: true });
+                  form.reset();
+                }
               });
           })
           .catch((error) => {
@@ -53,7 +58,7 @@ const Registration = () => {
         console.log(err);
       });
   };
- 
+
   return (
     <div className="min-h-[70vh] max-w-[500px] mx-auto md:mt-28 my-10  px-8 md:px-0 ">
       <h2
