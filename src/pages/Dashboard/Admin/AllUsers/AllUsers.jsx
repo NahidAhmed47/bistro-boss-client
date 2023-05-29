@@ -1,7 +1,8 @@
 import React from "react";
 import SectionTitle from "../../../../components/SectionTitle";
-import { FaRegTrashAlt } from "react-icons/fa";
+import { FaRegTrashAlt, FaUserShield } from "react-icons/fa";
 import { useQuery } from "@tanstack/react-query";
+import Swal from "sweetalert2";
 
 const AllUsers = () => {
   const { data: users = [], refetch } = useQuery(["users"], async () => {
@@ -10,6 +11,25 @@ const AllUsers = () => {
   });
   const handleDeleteUser = (id)=>{
     console.log(id)
+  }
+  const userRoleChanged = (user)=>{
+    fetch(`http://localhost:5000/users/admin/${user._id}`,{
+        method: "PATCH",
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+        if(data.modifiedCount > 0){
+            refetch();
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: `${user.name} is an Admin now!`,
+                showConfirmButton: false,
+                timer: 1500
+              })
+        }
+    })
   }
   return (
     <div className="w-full md:px-14">
@@ -42,7 +62,7 @@ const AllUsers = () => {
                   <th>{index + 1}</th>
                   <td>{user.name}</td>
                   <td>{user.email}</td>
-                  <td>User</td>
+                  <td>{user.role === 'admin' ? 'admin' : <button onClick={() => userRoleChanged(user)}><FaUserShield className="w-5 h-5 "></FaUserShield></button>}</td>
                   <td>
                     <button onClick={() => handleDeleteUser(user._id)}>
                       <FaRegTrashAlt className="w-5 h-5 text-red-500 hover:text-red-700"></FaRegTrashAlt>
