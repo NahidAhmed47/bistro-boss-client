@@ -5,11 +5,15 @@ import { FaRegTrashAlt } from "react-icons/fa";
 
 const MyCart = () => {
   const [, cart] = useCart();
-  console.log(cart)
   return (
     <div>
       <SectionTitle subtitle="My Cart" title="Wanna add more"></SectionTitle>
-      <div>
+      <div className="mt-5">
+        <div className="my-3 h-16 w-full flex justify-between items-center">
+            <p className="uppercase text-base font-semibold">Total Orders: {cart.length}</p>
+            <p className="uppercase text-base font-semibold">Total Price: {cart?.reduce((sum, item)=> sum + item.price, 0)}</p>
+            <button className="my-btn">Pay</button>
+        </div>
         <div className="overflow-x-auto">
           <table className="table w-full">
             {/* head */}
@@ -33,12 +37,6 @@ const MyCart = () => {
                   <td><FaRegTrashAlt className="w-5 h-5 text-red-500"></FaRegTrashAlt></td>
                 </tr>
               )}
-              {/* <tr>
-                <th>1</th>
-                <td>Cy Ganderton</td>
-                <td>Quality Control Specialist</td>
-                <td>Blue</td>
-              </tr> */}
             </tbody>
           </table>
         </div>
