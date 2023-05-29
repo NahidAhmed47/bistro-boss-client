@@ -18,6 +18,7 @@ import Reservation from "./pages/Dashboard/Users/Reservation/Reservation";
 import PaymentHistory from "./pages/Dashboard/Users/PaymentHistory/PaymentHistory";
 import AddReview from "./pages/Dashboard/Users/AddReview/AddReview";
 import MyBooking from "./pages/Dashboard/Users/MyBooking/MyBooking";
+import PrivateRoutes from "./pages/PrivateRoutes/PrivateRoutes";
 
 const queryClient = new QueryClient();
 
@@ -58,7 +59,7 @@ const router = createBrowserRouter([
   },
   {
     path:'dashboard',
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
     children: [
       {
         path:'user/home',

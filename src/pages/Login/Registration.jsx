@@ -9,7 +9,7 @@ const Registration = () => {
   const [error, setError] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
-  const from = location?.from?.state?.pathname || '/';
+  const from = location?.from?.state?.pathname || "/";
   const handleFormData = (e) => {
     setError("");
     e.preventDefault();
@@ -22,15 +22,26 @@ const Registration = () => {
       .then((result) => {
         updateUser(name, photo)
           .then(() => {
-            Swal.fire({
-              position: "center",
-              icon: "success",
-              title: "Account Created Successfully!",
-              showConfirmButton: false,
-              timer: 1500,
-            });
-            navigate(from, {replace:true});
-            form.reset();
+            const saveUser = { name: result.user.displayName, email: result.user.email };
+            fetch("http://localhost:5000/users", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(saveUser),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                Swal.fire({
+                  position: "center",
+                  icon: "success",
+                  title: "Account Created Successfully!",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                navigate(from, { replace: true });
+                form.reset();
+              });
           })
           .catch((error) => {
             setError(error.message);
@@ -38,7 +49,7 @@ const Registration = () => {
       })
       .catch((err) => {
         setError(err.message);
-        console.log(err)
+        console.log(err);
       });
   };
   // sign in with google
@@ -52,7 +63,7 @@ const Registration = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        navigate(from, {replace:true});
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         setError(err.message);
@@ -102,7 +113,6 @@ const Registration = () => {
               type="text"
               name="photo"
               placeholder="Enter url"
-
             />
           </div>
           <div className="mt-8">
@@ -133,9 +143,12 @@ const Registration = () => {
             </button>
           </div>
         </form>
-        <button onClick={handleGoogleSignIn} className="border border-primary px-4 py-2 rounded-full flex items-center gap-2 text-primary w-full mt-5 justify-center hover:text-white hover:bg-secondary hover:border-secondary duration-300">
-              <FaGoogle className="w-5 h-5 "></FaGoogle> Sign up with Google
-            </button>
+        <button
+          onClick={handleGoogleSignIn}
+          className="border border-primary px-4 py-2 rounded-full flex items-center gap-2 text-primary w-full mt-5 justify-center hover:text-white hover:bg-secondary hover:border-secondary duration-300"
+        >
+          <FaGoogle className="w-5 h-5 "></FaGoogle> Sign up with Google
+        </button>
         <div className="mt-8 text-sm font-display font-semibold text-gray-700 text-center">
           <h1>
             Already have an account ?{" "}
