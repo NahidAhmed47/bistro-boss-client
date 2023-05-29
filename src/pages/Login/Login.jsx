@@ -4,9 +4,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProviders";
+import SocialSignIn from "../../components/SocialSignIn";
 
 const Login = () => {
-  const { logIn, logInWithGoogle } = useContext(AuthContext);
+  const { logIn } = useContext(AuthContext);
   const [captchaStatus, setCaptchaStatus] = useState(false);
   const [error, setError] = useState("");
   const location = useLocation();
@@ -52,23 +53,6 @@ const Login = () => {
         });
         navigate(from, {replace:true});
         form.reset();
-      })
-      .catch((err) => {
-        setError(err.message);
-      });
-  };
-  // login with google
-  const handleGoogleLogIn = () => {
-    logInWithGoogle()
-      .then((result) => {
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Sign in Successfully!",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        navigate(from, {replace:true});
       })
       .catch((err) => {
         setError(err.message);
@@ -139,12 +123,7 @@ const Login = () => {
             </button>
           </div>
         </form>
-        <button
-          onClick={handleGoogleLogIn}
-          className="border border-primary px-4 py-2 rounded-full flex items-center gap-2 text-primary w-full mt-5 justify-center hover:text-white hover:bg-secondary hover:border-secondary duration-300"
-        >
-          <FaGoogle className="w-5 h-5 "></FaGoogle> Sign in with Google
-        </button>
+        <SocialSignIn></SocialSignIn>
         <div className="mt-8 text-sm font-display font-semibold text-gray-700 text-center">
           <h1>
             Don&apos;t have an account ?{" "}
