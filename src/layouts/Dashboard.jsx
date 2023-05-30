@@ -13,10 +13,12 @@ import {
   FaUtensils,
   FaWallet,
 } from "react-icons/fa";
+import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
   // TODO: set database user role or admin
-  const admin = false;
+  // const isAdmin = true;
+  const [isAdmin] = useAdmin();
   return (
     <div className="drawer drawer-mobile max-container ">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -40,7 +42,7 @@ const Dashboard = () => {
               Restaurant
             </h1>
           </div>
-          {admin ? (
+          {isAdmin ? (
             <>
               <li>
                 <Link

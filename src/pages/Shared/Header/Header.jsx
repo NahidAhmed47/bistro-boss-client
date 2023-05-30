@@ -3,10 +3,12 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import shopIcon from "../../../assets/icon/151-1511569_cart-notifications-free-shopping-cart-favicon-hd-png-removebg-preview.png";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import useCart from "../../../hooks/useCart";
+import useAdmin from "../../../hooks/useAdmin";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isLoading, cart] = useCart();
+  const [isAdmin] = useAdmin()
   const navigate = useNavigate();
   const handleLogOut = () => {
     logOut()
@@ -71,7 +73,8 @@ const Header = () => {
               Shop
             </NavLink>
           </div>
-          <Link to="dashboard/mycart">
+          {
+            !isAdmin && <Link to="dashboard/mycart">
             <div className="relative w-[62px] h-fit">
               <img className="w-[62px] " src={shopIcon} alt="" />
               <div className="absolute bottom-[2px] right-[2px] w-[26px] h-[26px] rounded-full bg-[#E8E8E8] flex justify-center items-center">
@@ -79,6 +82,7 @@ const Header = () => {
               </div>
             </div>
           </Link>
+          }
           <div className="ml-2">
             {user ? (
               <button onClick={handleLogOut} className="my-btn py-1">
