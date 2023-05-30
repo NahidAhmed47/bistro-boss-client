@@ -15,7 +15,7 @@ const SocialSignIn = () => {
     logInWithGoogle()
       .then((result) => {
         const saveUser = { name: result.user.displayName, email: result.user.email };
-        fetch("http://localhost:5000/users", {
+        fetch("https://bistro-boss-server-two.vercel.app/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

@@ -40,8 +40,8 @@ const AuthProviders = ({children}) => {
             setLoading(true);
             if(currentUser){
                 setUser(currentUser);
-                // axios.post('http://localhost:5000/jwt',{email: currentUser.email})
-                fetch('http://localhost:5000/jwt', {
+                // axios.post('https://bistro-boss-server-two.vercel.app/jwt',{email: currentUser.email})
+                fetch('https://bistro-boss-server-two.vercel.app/jwt', {
                     method: 'POST',
                     headers:{
                         'content-type': 'application/json'

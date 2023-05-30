@@ -13,7 +13,7 @@ const ItemCard = ({item}) => {
     const handleAddToCart = (item) =>{
       if(user && user.email){
         const cartItem = {itemId: _id, name, price, image, email: user.email}
-        fetch('http://localhost:5000/carts',{
+        fetch('https://bistro-boss-server-two.vercel.app/carts',{
           method: 'POST',
           headers: { 'Content-Type': 'application/json'},
           body: JSON.stringify(cartItem),
