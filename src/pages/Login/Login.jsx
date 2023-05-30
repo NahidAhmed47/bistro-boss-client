@@ -41,7 +41,6 @@ const Login = () => {
                 });
             return;
     }
-    console.log(email, password);
     logIn(email, password)
       .then((result) => {
         Swal.fire({

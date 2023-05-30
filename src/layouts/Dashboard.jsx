@@ -16,7 +16,7 @@ import {
 
 const Dashboard = () => {
   // TODO: set database user role or admin
-  const admin = true;
+  const admin = false;
   return (
     <div className="drawer drawer-mobile max-container ">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
