@@ -48,7 +48,8 @@ const Header = () => {
             >
               Contract us
             </NavLink>
-            <NavLink
+            {
+              isAdmin && <NavLink
               to="/dashboard/admin/home"
               className={({ isActive }) =>
                 isActive ? "text-[#EEFF25]" : "hover:text-primary duration-200"
@@ -56,6 +57,7 @@ const Header = () => {
             >
               Dashboard
             </NavLink>
+            }
             <NavLink
               to="/menu"
               className={({ isActive }) =>

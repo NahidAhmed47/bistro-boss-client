@@ -24,6 +24,7 @@ import AddItems from "./pages/Dashboard/Admin/AddItems/AddItems";
 import ManageItems from "./pages/Dashboard/Admin/ManageItems/ManageItems";
 import ManageBookings from "./pages/Dashboard/Admin/ManageBookings/ManageBookings";
 import AllUsers from "./pages/Dashboard/Admin/AllUsers/AllUsers";
+import AdminRoutes from "./PrivateRoutes/AdminRoutes";
 
 const queryClient = new QueryClient();
 
@@ -96,7 +97,7 @@ const router = createBrowserRouter([
       },
       {
         path:'add-items',
-        element: <AddItems></AddItems>
+        element: <AdminRoutes><AddItems></AddItems></AdminRoutes>
       },
       {
         path:'manage-items',
