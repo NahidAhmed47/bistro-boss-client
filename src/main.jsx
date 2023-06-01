@@ -18,7 +18,7 @@ import Reservation from "./pages/Dashboard/Users/Reservation/Reservation";
 import PaymentHistory from "./pages/Dashboard/Users/PaymentHistory/PaymentHistory";
 import AddReview from "./pages/Dashboard/Users/AddReview/AddReview";
 import MyBooking from "./pages/Dashboard/Users/MyBooking/MyBooking";
-import PrivateRoutes from "./pages/PrivateRoutes/PrivateRoutes";
+import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
 import AdminHome from "./pages/Dashboard/Admin/AdminHome/AdminHome";
 import AddItems from "./pages/Dashboard/Admin/AddItems/AddItems";
 import ManageItems from "./pages/Dashboard/Admin/ManageItems/ManageItems";
